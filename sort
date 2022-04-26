@@ -1,0 +1,70 @@
+
+ * File:   newmain.c
+ * Author: pict
+ *
+ * Created on 23 February, 2022, 9:58 AM
+ */
+
+
+#include <xc.h>
+
+void main(void) {
+    
+    // a=1 --> Bubble Sort
+    // a==2 ---> Selection Sort
+    // a==3 ---> Insertion Sort
+    
+    int a;
+    int arr[10]={9,8,7,6,5,4,3,2,1,0};
+    a=2;
+    int arr2[10];
+    if(a==1)
+    {
+        for(int i=0;i<10;i++)
+        {
+            for(int j=0;j<10-i-1;j++)
+            {
+                if(arr[j]>arr[j+1])
+                {
+                    int temp;
+                    temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
+            }
+        }
+        for(int i=0;i<10;i++)
+        {
+            arr2[i]=arr[i];
+        }
+    }
+    
+    int key;
+    //int arr3[10]={99,98,88,77,66,55,44,33,22,11};
+     int arr3[10]={15,14,13,12,11,10,9,8,7,6};
+    int arr4[10];
+    int j;
+    
+    if(a==2)
+    {
+        for(int i=0;i<10;i++)
+        {
+            key=arr3[i];
+            j=i-1;
+            while(j>=0 && arr3[j]>key)
+            {
+                arr3[j+1]= arr3[j];
+                j--;
+            }
+            arr3[j+1]= key;
+            
+        }
+        for(int i=0;i<10;i++)
+        {
+            arr4[i]=arr3[i];
+        }
+    }
+    
+    
+    return;
+}
