@@ -1,0 +1,39 @@
+/*
+ * File:   newmain.c
+ * Author: pict
+ *
+ * Created on 23 February, 2022, 12:32 PM
+ */
+
+
+#include <xc.h>
+
+void main(void) {
+
+    int arr1[5] = {2,1,4,3,5};
+    int arr2[5];
+    
+    
+    int tmp;
+    
+    for(int i=0;i<5;i++) {
+    
+        for(int j=0;j<5;j++) {
+        
+            if(arr1[j] > arr1[j]) {
+            
+                tmp = arr1[j];
+                arr1[j] = arr1[j+1];
+                arr1[j+1] = tmp;
+            }
+        }
+    }
+    
+    
+    for(int i=0;i<5;i++) {
+        arr2[i] = arr1[i]; 
+    }
+    
+     return;
+   
+}
