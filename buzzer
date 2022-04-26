@@ -1,0 +1,41 @@
+#include <xc.h>
+#define _XTAL_FREQ 12000000
+#define Buzzer LATAbits.LATA5
+unsigned int count=0;
+
+void __interrupt() Timer1ISR(void)
+{
+    if(TMR1IF==1)
+    {
+        TMR1L=0x10;
+        TMR1H=0xD1;
+        ++count;
+        
+        if(count>+100)
+        {
+            Buzzer=~Buzzer;
+            count=0;
+        }
+        TMR1IF=0;
+        return;
+        
+    }
+}
+void main(void)
+{
+    TISB=0;
+    TRISAbits.TRISA5=0;
+    GIE=1;
+    PEIE=1;
+    __delay_ms(100);
+    TMR1IF=0;
+     __delay_ms(100);
+    TMR1IE=1;
+     __delay_ms(100);
+    TMR1IF=0;
+    T1CON0x80;
+    TMR1L=0x20;
+    TRR1H=0xD1;
+    while(1);
+    return;
+}
